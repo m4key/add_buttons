@@ -1,8 +1,8 @@
-(function() {
+$(function() {
   const btnName = "Я кнопка";
   const elType = 'button';
   const element = buildElement('div');
-  const container = document.querySelector("#container");
+  const container = $("#container");
 
   appendElement(container, element);
 
@@ -10,7 +10,7 @@
   
 		const button = buildElement(elType);
 		appendElement(element, button);
-    addClass(button, elType);
+    addNewClass(button, elType);
     setTextContent(button, btnName);
 	
 		addListener(button, 'click', addButton);
@@ -22,8 +22,8 @@
    * @param {Object} htmlObj
    * @param {string} className
    */
-  function addClass(htmlObj, className) {
-    htmlObj.classList.add(className);
+  function addNewClass(htmlObj, className) {
+    $(htmlObj).addClass(className);
   }
   
 	/**
@@ -32,7 +32,7 @@
    * @param {string} text 
    */
   function setTextContent(htmlObj, text) {
-    htmlObj.textContent = text;
+    $(htmlObj).text(text);
   }
 
   /**
@@ -41,7 +41,7 @@
    * @param {string} element 
    */
   function appendElement(htmlObj, element) {
-    htmlObj.appendChild(element);
+    $(htmlObj).append(element);
   }
   
 	/**
@@ -59,7 +59,7 @@
    * @param {Function} func 
    */
   function addListener(htmlObj, event, func) {
-		htmlObj.addEventListener(event, func); 
+		$(htmlObj).on(event, func); 
 	}
 	
-})();
+});
