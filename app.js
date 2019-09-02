@@ -1,16 +1,17 @@
 $(function() {
-  const btnName = "Я кнопка";
-  const elType = 'button';
-  const element = buildElement('div');
-  const container = $("#container");
+  const btnName = 'Я кнопка';
+  const elType = '<button/>';
+  const btnClassName = 'button';
+  const element = $('<div/>');
+  const container = $('#container');
 
   appendElement(container, element);
 
   function addButton() {
   
-		const button = buildElement(elType);
+		const button = $(elType);
 		appendElement(element, button);
-    addNewClass(button, elType);
+    addNewClass(button, btnClassName);
     setTextContent(button, btnName);
 	
 		addListener(button, 'click', addButton);
@@ -44,14 +45,6 @@ $(function() {
     $(htmlObj).append(element);
   }
   
-	/**
-   * Создает элемент 
-   * @param {string} type 
-   */
-	function buildElement(type) {
-		return document.createElement(type);
-  }
-
   /**
    * Добавляет следующую кнопку
    * @param {Object} htmlObj 
